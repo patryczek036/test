@@ -1,0 +1,59 @@
+body{
+	width: 100%;
+	margin: 0 auto;
+	background-color: #455d7a !important;
+}
+.container{
+	
+}
+.left-side{
+	background-color: #233142;
+	height: 90vh;
+	border-radius: 20px;
+	margin-top: 5vh;
+}
+#container-p{
+	color: white;
+	font-size: 32px;
+	text-align: center;
+	border-bottom: 2px solid #facf5a;
+}
+.choose-window{
+	height: 75vh;
+	overflow: auto;
+}
+.typ{
+	margin-left: auto !important;
+	margin-right: auto !important;
+	background-color: #455d7a;
+	border-radius: 10px;
+	border: 1px solid #facf5a;
+}
+.typ h3{
+	text-align: center;
+	color: white;
+}
+.typ p{
+	color: white;	
+	margin-top: 10px;
+}
+.skladnik{
+	border-bottom: 1px solid #facf5a;
+}
+.dodaj-button{
+	float: right;
+	background-color: #f95959 !important;
+}
+
+.right-side{
+	background-color: #233142;
+	height: 90vh;
+	border-radius: 20px;
+	margin-top: 5vh;
+}
+.right-side p{
+	color: white;
+	font-size: 32px;
+	text-align: center;
+	border-bottom: 2px solid #facf5a;
+}
