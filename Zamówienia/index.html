@@ -9,6 +9,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="script.js"></script>
+	<script type="text/javascript" src="data.js"></script>
 </head>
 <body>
 	<div class="container col-10">
@@ -16,29 +17,29 @@
 	<!-- ------------------------------------------------------------------LEFTSIDE---------------------------------------------------------------->
 		<div class="left-side col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<p id="container-p">Dodaj składniki</p>
+			<div onclick="showLeftForm(); addRightIceCream();" class="btn-dodaj-loda">Dodaj loda</div>
 			<!-- ---------------------------------------------------------------------------------------------------------------------------------->
 			<div class="choose-window col-12">
 			<br>
-			
 			
 				<div class="typ col-12">
 					<h3>Typ loda</h3>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Wafelek</p>	
+							<p id="t0"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addWafel()" class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Kubek</p>	
+							<p id="t1"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addKubek()" class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 				</div>
@@ -49,100 +50,100 @@
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Truskawka</p>	
+							<p id="Truskawka"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Orzech</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(0)" class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Mango</p>	
+							<p id="Orzech"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Pistacja</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(1)"  class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Czekolada</p>	
+							<p id="Mango"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Wiśnia</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(2)"  class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Cytryna</p>	
+							<p id="Pistacja"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Wanilia</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(3)"  class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Śmietanka</p>	
+							<p id="Czekolada"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Kiwi</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(4)"  class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
 					<div class="row skladnik">
 						<div class="col-6">
-							<p>Tiramisu</p>	
+							<p id="Wiśnia"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addTaste(5)"  class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row skladnik">
+						<div class="col-6">
+							<p id="Cytryna"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addTaste(6)"  class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row skladnik">
+						<div class="col-6">
+							<p id="Wanilia"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addTaste(7)"  class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row skladnik">
+						<div class="col-6">
+							<p id="Śmietanka"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addTaste(8)"  class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row skladnik">
+						<div class="col-6">
+							<p id="Kiwi"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addTaste(9)"  class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row skladnik">
+						<div class="col-6">
+							<p id="Tiramisu"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addTaste(10)"  class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 				</div>
@@ -152,39 +153,50 @@
 				<div class="typ col-12">
 					<h3>Dodatki</h3>
 					<br>
-					<div class="row skladnik">
+					<div class="row dodatek">
 						<div class="col-6">
-							<p>Posypka</p>	
+							<p id="d0"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
-						</div>
-					</div>
-					<br>
-					<div class="row skladnik">
-						<div class="col-6">
-							<p>Polewa czekoladowa</p>	
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addAdditionals(0)" class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 					<br>
-					<div class="row skladnik">
+					<div class="row dodatek">
 						<div class="col-6">
-							<p>Polewa truskawkowa</p>	
+							<p id="d1"></p>	
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-primary dodaj-button">Dodaj</button>
+							<button type="button" onclick="addAdditionals(1)" class="btn btn-primary dodaj-button">Dodaj</button>
+						</div>
+					</div>
+					<br>
+					<div class="row dodatek">
+						<div class="col-6">
+							<p id="d2"></p>	
+						</div>
+						<div class="col-6">
+							<button type="button" onclick="addAdditionals(2)" class="btn btn-primary dodaj-button">Dodaj</button>
 						</div>
 					</div>
 				</div>
-				
+				<br>
+				<div class="row">
+					<div class="col-6">
+						<button type="button" class="btn btn-danger btn-down-section">Anuluj</button>
+					</div>
+					<div class="col-6">
+						<button type="button" class="btn btn-success btn-down-section">Zatwierdź</button>
+					</div>
+				</div>
 			</div>
 		</div>
+		
+		<!-------------------------------------------------------------------------------------------------------------------------------------->
 		<div class="center-side col-lg-2 col-md-2"></div>
-		<div class="right-side col-lg-5 col-md-5 col-sm-12 col-xs-12">
-			<p>Podsumowanie</p>
+		<!-------------------------------------------------------------------------------------------------------------------------------------->
+		<div id="right-side" class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+			<p id="podsumowanie">Podsumowanie</p>
 		</div>
 	</div>
 	</div>

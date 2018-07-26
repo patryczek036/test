@@ -21,6 +21,17 @@ body{
 .choose-window{
 	height: 75vh;
 	overflow: auto;
+	display: none;
+}
+.btn-dodaj-loda{
+	background-color: #f95959;
+	text-align: center;
+	color: white;
+	line-height: 60px;
+	border-radius: 5px;
+}
+.btn-dodaj-loda:hover{
+	cursor: pointer;
 }
 .typ{
 	margin-left: auto !important;
@@ -44,14 +55,23 @@ body{
 	float: right;
 	background-color: #f95959 !important;
 }
+.dodatek{
+	border-bottom: 1px solid #facf5a;
+}
+.btn-down-section{
+	display: block !important;
+	margin: 0 auto !important;
+	padding: 20px !important;
+}
 
-.right-side{
+
+#right-side{
 	background-color: #233142;
 	height: 90vh;
 	border-radius: 20px;
 	margin-top: 5vh;
 }
-.right-side p{
+#podsumowanie{
 	color: white;
 	font-size: 32px;
 	text-align: center;
