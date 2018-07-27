@@ -1,13 +1,15 @@
 body{
 	width: 100%;
 	margin: 0 auto;
-	background-color: #455d7a !important;
+	
+	background-image: url("bg.png") !important;
 }
 .container{
 	
 }
 .left-side{
-	background-color: #233142;
+	background-color: rgba(63,59,59,0.7);
+	
 	height: 90vh;
 	border-radius: 20px;
 	margin-top: 5vh;
@@ -23,20 +25,56 @@ body{
 	overflow: auto;
 	display: none;
 }
-.btn-dodaj-loda{
-	background-color: #f95959;
+#noweZamowienieButton{
+	background-color: #63aebb;
 	text-align: center;
 	color: white;
 	line-height: 60px;
 	border-radius: 5px;
 }
+#noweZamowienieButton:hover{
+	cursor: pointer;
+}
+#zamowienieForm{
+	display: none;
+}
+.btn-dodaj-loda{
+	background-color: #63aebb;
+	text-align: center;
+	color: white;
+	line-height: 60px;
+	border-radius: 5px;
+}	
+}
 .btn-dodaj-loda:hover{
+	cursor: pointer;
+}
+.btn-anuluj-zamowienie{
+	background-color: #AF4035;
+	text-align: center;
+	color: white;
+	margin-top: 20px;
+	line-height: 60px;
+	border-radius: 5px;
+}	
+.btn-anuluj-zamowienie:hover{
+	cursor: pointer;
+}
+.btn-zloz-zamowienie{
+	background-color: #629632;
+	text-align: center;
+	color: white;
+	margin-top: 20px;
+	line-height: 60px;
+	border-radius: 5px;
+}	
+.btn-zloz-zamowienie:hover{
 	cursor: pointer;
 }
 .typ{
 	margin-left: auto !important;
 	margin-right: auto !important;
-	background-color: #455d7a;
+	background-color: #2e282a;
 	border-radius: 10px;
 	border: 1px solid #facf5a;
 }
@@ -66,7 +104,7 @@ body{
 
 
 #right-side{
-	background-color: #233142;
+	background-color: rgba(63,59,59,0.7);
 	height: 90vh;
 	border-radius: 20px;
 	margin-top: 5vh;
