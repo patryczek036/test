@@ -35,6 +35,17 @@ body{
 #noweZamowienieButton:hover{
 	cursor: pointer;
 }
+#dostepneSkladnikiButton{
+	background-color: #8B7355;
+	text-align: center;
+	color: white;
+	line-height: 60px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+#dostepneSkladnikiButton:hover{
+	cursor: pointer;
+}
 #zamowienieForm{
 	display: none;
 }
