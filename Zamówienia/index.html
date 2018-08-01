@@ -21,7 +21,7 @@
 			<div id="dostepneSkladnikiButton" onclick="dostepneSkladniki()">Dostępne składniki</div>
 			<div id="zamowienieForm">
 				<div onclick="showLeftForm(); addRightIceCream();" class="btn-dodaj-loda">Dodaj loda</div>
-				<div onclick="" class="btn-anuluj-zamowienie">Anuluj zamówienie</div>
+				<div onclick="anulujZamowienie()" class="btn-anuluj-zamowienie">Anuluj zamówienie</div>
 				<div onclick="" class="btn-zloz-zamowienie">Złóż zamówienie</div>
 			</div>
 			
@@ -301,10 +301,10 @@
 				<br>
 				<div class="row">
 					<div class="col-6">
-						<button type="button" onclick="test()" class="btn btn-danger btn-down-section">Anuluj</button>
+						<button type="button" onclick="anulujLoda()" class="btn btn-danger btn-down-section">Anuluj</button>
 					</div>
 					<div class="col-6">
-						<button type="button" class="btn btn-success btn-down-section">Zatwierdź</button>
+						<button type="button" onclick="zatwierdzLoda()" class="btn btn-success btn-down-section">Zatwierdź</button>
 					</div>
 				</div>
 			</div>
@@ -315,6 +315,9 @@
 		<!-------------------------------------------------------------------------------------------------------------------------------------->
 		<div id="right-side" class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<p id="podsumowanie">Podsumowanie</p>
+			<div id="right-side-form" class="col-12">
+				
+			</div>
 		</div>
 	</div>
 	</div>

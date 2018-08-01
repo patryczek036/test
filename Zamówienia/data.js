@@ -74,8 +74,26 @@ function noweZamowienie(){
 	document.querySelector("#dostepneSkladnikiButton").style.display = "none";
 	numerZamowienia++;
 }
-
-
+//funckja anulujaca zamowienie, przywraca panel pierwszy
+function anulujZamowienie(){
+	document.querySelector("#zamowienieForm").style.display = "none";
+	document.querySelector("#noweZamowienieButton").style.display = "block";
+	document.querySelector("#dostepneSkladnikiButton").style.display = "block";
+	for(let j = 1 ; j <= liczbaLodow ; j++){
+		document.getElementById("d"+j+"0").remove();
+		document.getElementById("d"+j+"1").remove();
+		document.getElementById("d"+j+"2").remove();
+		document.getElementById("p"+j).remove();
+	}
+	tescik[0]="";
+	tescik[1]="";
+	
+	numerZamowienia--;
+	liczbaLodow = 0;
+	liczbaSmakow = 0;
+	liczbaDekoracji = 0;
+	liczbaPolew = 0;
+}
 // funckja wpisująca do elementow HTML dane pobrane z tablic obietkow lodow
 window.onload = function() {
 
@@ -97,25 +115,32 @@ function wypelnijNazwySkladnikow(){
 	document.getElementById(arrPolewa[i][2]).innerHTML = arrPolewa[i][0];
 	}
 }
-
+//funckja chowajaca przyciski i pokazujaca okno dodwania loda
+function showLeftForm(){
+	document.querySelector(".choose-window").style.display = "block";
+	document.querySelector(".btn-dodaj-loda").style.display = "none";
+	document.querySelector(".btn-anuluj-zamowienie").style.display = "none";
+	document.querySelector(".btn-zloz-zamowienie").style.display = "none";
+	
+}
 //funckja pokazujaca prawy panel, dodajaca obiekt loda
 function addRightIceCream(){
 	liczbaLodow++;
 	var p = document.createElement("p");
+	p.setAttribute("id", "p"+liczbaLodow+"");
 	p.style.color = "#facf5a";
 	p.style.fontSize= "26px";
 	p.innerHTML = "Lód numer " + liczbaLodow +":";
 	
-	document.getElementById("right-side").appendChild(p);
+	document.getElementById("right-side-form").appendChild(p);
 	
-	iceCream.push("Lód numer " + liczbaLodow);
 	
 	var d1 = document.createElement("div");
-	d1.setAttribute("id", "d1");
+	d1.setAttribute("id", "d"+liczbaLodow+"0");
 	var d2 = document.createElement("div");
-	d2.setAttribute("id", "d2");
+	d2.setAttribute("id", "d"+liczbaLodow+"1");
 	var d3 = document.createElement("div");
-	d3.setAttribute("id", "d3");
+	d3.setAttribute("id", "d"+liczbaLodow+"2");
 	
 	var p1 = document.createElement("p");
 	p1.innerHTML = "Smaki:";
@@ -130,12 +155,12 @@ function addRightIceCream(){
 	p2.style.borderBottom = "1px solid rgb(250, 207, 90)";
 	p3.style.borderBottom = "1px solid rgb(250, 207, 90)";
 	
-	document.getElementById("right-side").appendChild(d1);
-	document.getElementById("right-side").appendChild(d2);
-	document.getElementById("right-side").appendChild(d3);
-	document.getElementById("d1").appendChild(p1);
-	document.getElementById("d2").appendChild(p2);
-	document.getElementById("d3").appendChild(p3);
+	document.getElementById("right-side-form").appendChild(d1);
+	document.getElementById("right-side-form").appendChild(d2);
+	document.getElementById("right-side-form").appendChild(d3);
+	document.getElementById("d"+liczbaLodow+"0").appendChild(p1);
+	document.getElementById("d"+liczbaLodow+"1").appendChild(p2);
+	document.getElementById("d"+liczbaLodow+"2").appendChild(p3);
 	
 }
 var tescik =["",""];
@@ -149,24 +174,21 @@ function addTaste(taste){
 		liczbaSmakow++;
 		var d = document.createElement("div");
 		d.className = "row";
-		d.setAttribute("id", "dodanyElementSmaki"+taste);
+		d.setAttribute("id", "dodanyElementSmaki"+liczbaLodow+taste);
 		d.style.lineHeight = "30px";
-		document.getElementById("d1").appendChild(d);
+		document.getElementById("d"+liczbaLodow+"0").appendChild(d);
 		
 		var nazwaPrawo = document.createElement("p");
 		nazwaPrawo.style.color = "white";
 		nazwaPrawo.className = "col-9";
 		nazwaPrawo.innerHTML = arrSmaki[taste][0];
-		document.getElementById("dodanyElementSmaki"+taste).appendChild(nazwaPrawo);
+		document.getElementById("dodanyElementSmaki"+liczbaLodow+taste).appendChild(nazwaPrawo);
 		
 		var przyciskPrawo = document.createElement("div");
 		przyciskPrawo.style.backgroundColor = "#f95959";
-		przyciskPrawo.className = "col-2";
+		przyciskPrawo.className = "col-3";
 		przyciskPrawo.setAttribute("id", "smak1");
-		przyciskPrawo.style.marginBottom = "10px";
-		przyciskPrawo.style.borderRadius = "5px";
-		przyciskPrawo.style.textAlign = "center";
-		przyciskPrawo.style.color = "white";
+		przyciskPrawo.className = "smak"+liczbaLodow;
 		przyciskPrawo.innerHTML = "Usuń";
 		przyciskPrawo.onclick = function(){
 			if(this.parentElement.childNodes[0].innerHTML == tescik[0]){
@@ -180,7 +202,7 @@ function addTaste(taste){
 			liczbaSmakow--;
 		}
 		}
-		document.getElementById("dodanyElementSmaki"+taste).appendChild(przyciskPrawo);
+		document.getElementById("dodanyElementSmaki"+liczbaLodow+taste).appendChild(przyciskPrawo);
 }
 }
 // add dekoracje
@@ -190,20 +212,21 @@ function addDekoracje(dekoracja){
 		
 		var d = document.createElement("div");
 		d.className = "row";
-		d.setAttribute("id", "dodanyElementDekoracje"+dekoracja);
+		d.setAttribute("id", "dodanyElementDekoracje"+liczbaLodow+dekoracja);
 		d.style.lineHeight = "30px";
-		document.getElementById("d2").appendChild(d);
+		document.getElementById("d"+liczbaLodow+"1").appendChild(d);
 		
 		var nazwaPrawo = document.createElement("p");
 		nazwaPrawo.style.color = "white";
 		nazwaPrawo.className = "col-9";
 		nazwaPrawo.innerHTML = arrDekoracje[dekoracja][0];
-		document.getElementById("dodanyElementDekoracje"+dekoracja).appendChild(nazwaPrawo);
+		document.getElementById("dodanyElementDekoracje"+liczbaLodow+dekoracja).appendChild(nazwaPrawo);
 		
 		var przyciskPrawo = document.createElement("div");
 		przyciskPrawo.style.backgroundColor = "#f95959";
-		przyciskPrawo.className = "col-2";
-		przyciskPrawo.setAttribute("id", "dekoracje");
+		przyciskPrawo.className = "col-3";
+		przyciskPrawo.setAttribute("id", "smak1");
+		przyciskPrawo.className = "deko"+liczbaLodow;
 		przyciskPrawo.style.marginBottom = "10px";
 		przyciskPrawo.style.borderRadius = "5px";
 		przyciskPrawo.style.textAlign = "center";
@@ -213,7 +236,7 @@ function addDekoracje(dekoracja){
 			this.parentElement.remove();
 			liczbaDekoracji--;
 		}
-		document.getElementById("dodanyElementDekoracje"+dekoracja).appendChild(przyciskPrawo);
+		document.getElementById("dodanyElementDekoracje"+liczbaLodow+dekoracja).appendChild(przyciskPrawo);
 
 	}
 }
@@ -224,20 +247,21 @@ function addPolewa(polewa){
 		
 		var d = document.createElement("div");
 		d.className = "row";
-		d.setAttribute("id", "dodanyElementPolewy"+polewa);
+		d.setAttribute("id", "dodanyElementPolewy"+liczbaLodow+polewa);
 		d.style.lineHeight = "30px";
-		document.getElementById("d3").appendChild(d);
+		document.getElementById("d"+liczbaLodow+"2").appendChild(d);
 		
 		var nazwaPrawo = document.createElement("p");
 		nazwaPrawo.style.color = "white";
 		nazwaPrawo.className = "col-9";
 		nazwaPrawo.innerHTML = arrPolewa[polewa][0];
-		document.getElementById("dodanyElementPolewy"+polewa).appendChild(nazwaPrawo);
+		document.getElementById("dodanyElementPolewy"+liczbaLodow+polewa).appendChild(nazwaPrawo);
 		
 		var przyciskPrawo = document.createElement("div");
 		przyciskPrawo.style.backgroundColor = "#f95959";
-		przyciskPrawo.className = "col-2";
-		przyciskPrawo.setAttribute("id", "polewy");
+		przyciskPrawo.className = "col-3";
+		przyciskPrawo.setAttribute("id", "smak1");
+		przyciskPrawo.className = "pole"+liczbaLodow;
 		przyciskPrawo.style.marginBottom = "10px";
 		przyciskPrawo.style.borderRadius = "5px";
 		przyciskPrawo.style.textAlign = "center";
@@ -247,12 +271,50 @@ function addPolewa(polewa){
 			this.parentElement.remove();
 			liczbaPolew--;
 		}
-		document.getElementById("dodanyElementPolewy"+polewa).appendChild(przyciskPrawo);
+		document.getElementById("dodanyElementPolewy"+liczbaLodow+polewa).appendChild(przyciskPrawo);
 
 	}
 }
 
-
+//funckja anulujaca dodanie loda
+function anulujLoda(){
+	liczbaSmakow = 0;
+	liczbaDekoracji = 0;
+	liczbaPolew = 0;
+	document.querySelector("#zamowienieForm").style.display = "block";
+	document.querySelector(".choose-window").style.display = "none";
+	document.querySelector(".btn-dodaj-loda").style.display = "block";
+	document.querySelector(".btn-anuluj-zamowienie").style.display = "block";
+	document.querySelector(".btn-zloz-zamowienie").style.display = "block";
+	document.getElementById("d"+liczbaLodow+"0").remove();
+	document.getElementById("d"+liczbaLodow+"1").remove();
+	document.getElementById("d"+liczbaLodow+"2").remove();
+	document.getElementById("p"+liczbaLodow+"").remove();
+	tescik[0]="";
+	tescik[1]="";
+	liczbaLodow--;
+	isTasteSet = false;
+	
+}
+//funckja zatwierdzajaca loda do realizacji
+function zatwierdzLoda(){
+	if(isTasteSet){
+		document.querySelector("#zamowienieForm").style.display = "block";
+		document.querySelector(".choose-window").style.display = "none";
+		document.querySelector(".btn-dodaj-loda").style.display = "block";
+		document.querySelector(".btn-anuluj-zamowienie").style.display = "block";
+		document.querySelector(".btn-zloz-zamowienie").style.display = "block";
+		liczbaSmakow = 0;
+		liczbaDekoracji = 0;
+		liczbaPolew = 0;
+		tescik[0]="";
+		tescik[1]="";
+		isTasteSet = false;
+		$(".smak"+liczbaLodow).remove();
+		$(".deko"+liczbaLodow).remove();
+		$(".pole"+liczbaLodow).remove();
+	}
+}
 
 
 
